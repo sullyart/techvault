@@ -97,7 +97,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     749.99,
     "16GB GDDR6 · FSR 4",
-    "/Products/graphics-cards/Saphire.png",
+    "/Products/graphics-cards/saphire.png",
   ],
   [
     "AMD Ryzen 9 9950X 16-Core Desktop Processor",
