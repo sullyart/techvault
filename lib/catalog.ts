@@ -277,7 +277,7 @@ const seeds: ProductSeed[] = [
     "Laptops",
     2999.99,
     "Core Ultra 9 · RTX 5090 · 32GB",
-    "/products/laptops/asus.png",
+    "/Products/laptops/asus.png",
   ],
   [
     "Lenovo Legion Pro 7i Gen 10 Gaming Laptop",
@@ -286,7 +286,7 @@ const seeds: ProductSeed[] = [
     "Laptops",
     2399.99,
     "Core Ultra 9 · RTX 5080 · 32GB",
-    "/products/laptops/lenovo.webp",
+    "/Products/laptops/lenovo.webp",
   ],
   [
     "MSI Raider 18 HX AI Gaming Laptop",
@@ -295,7 +295,7 @@ const seeds: ProductSeed[] = [
     "Laptops",
     2799.99,
     "Core Ultra 9 · RTX 5090 · 18-inch",
-    "/products/laptops/msi.webp",
+    "/Products/laptops/msi.webp",
   ],
   [
     "ASUS TUF Gaming A16 Advantage Edition",
@@ -304,7 +304,7 @@ const seeds: ProductSeed[] = [
     "Laptops",
     1199.99,
     "Ryzen 9 · RX 7700S · 16GB",
-    "/products/laptops/tuf.webp",
+    "/Products/laptops/tuf.webp",
   ],
   [
     "Apple MacBook Air 15-inch M4 16GB",
@@ -313,7 +313,7 @@ const seeds: ProductSeed[] = [
     "Laptops",
     1299.99,
     "M4 · 16GB · 512GB SSD",
-    "/products/laptops/mac2.png",
+    "/Products/laptops/mac2.png",
   ],
   [
     "Razer Blade 16 OLED Gaming Laptop",
@@ -322,7 +322,7 @@ const seeds: ProductSeed[] = [
     "Laptops",
     2699.99,
     "Core Ultra 9 · RTX 5080 · OLED",
-    "/products/laptops/razerblade.png",
+    "/Products/laptops/razerblade.png",
   ],
   [
     "LG UltraGear 32GS95UE 32-inch OLED Monitor",
@@ -331,7 +331,7 @@ const seeds: ProductSeed[] = [
     "Monitors",
     1199.99,
     "4K · 240Hz · OLED",
-    "/products/monitors/LG_UltraGear_32GS95UE_32-inch_OLED_Monitor.png",
+    "/Products/monitors/LG_UltraGear_32GS95UE_32-inch_OLED_Monitor.png",
   ],
   [
     "Samsung Odyssey OLED G8 32-inch 4K Monitor",
@@ -340,7 +340,7 @@ const seeds: ProductSeed[] = [
     "Monitors",
     1099.99,
     "4K · 240Hz · HDR400",
-    "/products/monitors/Samsung Odyssey OLED G8 32-inch 4K Monitor.webp",
+    "/Products/monitors/Samsung Odyssey OLED G8 32-inch 4K Monitor.webp",
   ],
   [
     "Alienware AW3423DWF 34-inch QD-OLED",
@@ -349,7 +349,7 @@ const seeds: ProductSeed[] = [
     "Monitors",
     899.99,
     "3440x1440 · 165Hz · QD-OLED",
-    "/products/monitors/alienware.png",
+    "/Products/monitors/alienware.png",
   ],
   [
     "ASUS ROG Swift PG27UCDM 27-inch 4K OLED",
@@ -358,7 +358,7 @@ const seeds: ProductSeed[] = [
     "Monitors",
     1099.99,
     "4K · 240Hz · 0.03ms",
-    "/products/monitors/asusmonitor.png",
+    "/Products/monitors/asusmonitor.png",
   ],
   [
     "Dell UltraSharp U3224KB 32-inch Monitor",
@@ -367,7 +367,7 @@ const seeds: ProductSeed[] = [
     "Monitors",
     1599.99,
     "6K · IPS Black · Thunderbolt",
-    "/products/monitors/dell-ultrasharp-32-6k-monitor.png",
+    "/Products/monitors/dell-ultrasharp-32-6k-monitor.png",
   ],
   [
     "Logitech G915 X Lightspeed Wireless Keyboard",
@@ -376,7 +376,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     250.99,
     "Low profile · RGB · Wireless",
-    "/products/keyboards/logitech.webp",
+    "/Products/keyboards/logitech.webp",
   ],
   [
     "Razer BlackWidow V4 Pro 75% Mechanical Keyboard",
@@ -385,7 +385,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     289.99,
     "Hot-swap · RGB · Tactile",
-    "/products/keyboards/razer2.png",
+    "/Products/keyboards/razer2.png",
   ],
   [
     "Keychron Q1 Max QMK Wireless Keyboard",
@@ -394,7 +394,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     200.99,
     "75% · QMK · Wireless",
-    "/products/keyboards/keychron.webp",
+    "/Products/keyboards/keychron.webp",
   ],
   [
     "Corsair K70 MAX RGB Magnetic Keyboard",
@@ -403,7 +403,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     240.99,
     "Hall effect · Adjustable actuation",
-    "/products/keyboards/corsairkeyboard.webp",
+    "/Products/keyboards/corsairkeyboard.webp",
   ],
   [
     "Logitech G Pro X Superlight 2 Mouse",
@@ -412,7 +412,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     159.99,
     "60g · 32K DPI · Wireless",
-    "/products/mice/logitechmouse.png",
+    "/Products/mice/logitechmouse.png",
   ],
   [
     "Razer Viper V3 Pro Wireless Mouse",
@@ -421,7 +421,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     149.99,
     "54g · 35K DPI · Wireless",
-    "/products/mice/razerviper.png",
+    "/Products/mice/razerviper.png",
   ],
   [
     "SteelSeries Aerox 5 Wireless Mouse",
@@ -430,7 +430,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     119.99,
     "9 buttons · Quantum 2.0",
-    "/products/mice/steelseriesmouse.png",
+    "/Products/mice/steelseriesmouse.png",
   ],
   [
     "Logitech G Pro X 2 LIGHTSPEED Headset",
@@ -439,7 +439,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     249.99,
     "Graphene drivers · Wireless",
-    "/products/headsets/logitechheadset.png",
+    "/Products/headsets/logitechheadset.png",
   ],
   [
     "SteelSeries Arctis Nova Pro Wireless",
@@ -448,7 +448,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     349.99,
     "ANC · Dual wireless",
-    "/products/headsets/steelseriesheadset.png",
+    "/Products/headsets/steelseriesheadset.png",
   ],
   [
     "Razer BlackShark V2 Pro Wireless Headset",
@@ -457,7 +457,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     179.99,
     "HyperClear mic · 70 hours",
-    "/products/headsets/razerheadset.png",
+    "/Products/headsets/razerheadset.png",
   ],
   [
     "Elgato Facecam 4K USB Webcam",
@@ -466,7 +466,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     199.99,
     "4K60 · HDR · Fixed Focus",
-    "/products/webcams/elegatofacecam.png",
+    "/Products/webcams/elegatofacecam.png",
   ],
   [
     "Logitech MX Brio Ultra HD Webcam",
@@ -475,7 +475,7 @@ const seeds: ProductSeed[] = [
     "Peripherals",
     179.99,
     "4K · HDR · Dual beamforming",
-    "/products/webcams/Logitech_MX_Brio_Ultra_HD_Webcam.png",
+    "/Products/webcams/Logitech_MX_Brio_Ultra_HD_Webcam.png",
   ],
   [
     "Xbox Wireless Controller Carbon Black",
@@ -484,7 +484,7 @@ const seeds: ProductSeed[] = [
     "Gaming",
     59.99,
     "Bluetooth · Xbox · PC",
-    "/products/controllers/xbox.png",
+    "/Products/controllers/xbox.png",
   ],
   [
     "Sony DualSense Wireless Controller",
@@ -493,7 +493,7 @@ const seeds: ProductSeed[] = [
     "Gaming",
     74.99,
     "Haptic feedback · PS5",
-    "/products/controllers/sony2.png",
+    "/Products/controllers/sony2.png",
   ],
   [
     "ASUS ROG Rapture GT-BE98 Pro WiFi 7 Router",
@@ -502,7 +502,7 @@ const seeds: ProductSeed[] = [
     "Networking",
     699.99,
     "Quad-band · 30Gbps · WiFi 7",
-    "/products/networking/asusrog.png",
+    "/Products/networking/asusrog.png",
   ],
   [
     "TP-Link Archer BE800 WiFi 7 Router",
@@ -511,7 +511,7 @@ const seeds: ProductSeed[] = [
     "Networking",
     499.99,
     "19Gbps · 10Gb Ethernet",
-    "/products/networking/tplink.png",
+    "/Products/networking/tplink.png",
   ],
   [
     "eero Max 7 Mesh WiFi 7 System 3-Pack",
@@ -520,7 +520,7 @@ const seeds: ProductSeed[] = [
     "Networking",
     1699.99,
     "10Gbps · 3-pack · Mesh",
-    "/products/networking/eero.png",
+    "/Products/networking/eero.png",
   ],
   [
     "NETGEAR MS308 8-Port 2.5G Multi-Gig Switch",
@@ -529,7 +529,7 @@ const seeds: ProductSeed[] = [
     "Networking",
     119.99,
     "8-port · 2.5GbE",
-    "/products/networking/netgear.png",
+    "/Products/networking/netgear.png",
   ],
   [
     "Google Nest Hub Max Smart Display",
@@ -538,7 +538,7 @@ const seeds: ProductSeed[] = [
     "Smart Home",
     229.99,
     "10-inch · HD display · Smart home control",
-    "/products/smart-home/nesthub.png",
+    "/Products/smart-home/nesthub.png",
   ],
   [
     "Sonos Era 300 Smart Speaker",
@@ -547,7 +547,7 @@ const seeds: ProductSeed[] = [
     "Smart Home",
     449.99,
     "Dolby Atmos · WiFi · Bluetooth",
-    "/products/smart-home/sonos.png",
+    "/Products/smart-home/sonos.png",
   ],
   [
     "Ring Stick Up Cam Pro Battery Camera",
@@ -556,7 +556,7 @@ const seeds: ProductSeed[] = [
     "Smart Home",
     179.99,
     "1080p HDR · Color Night Vision · Battery",
-    "/products/smart-home/ringstick.png",
+    "/Products/smart-home/ringstick.png",
   ],
   [
     "Philips Hue White & Color Ambiance Starter Kit",
@@ -565,7 +565,7 @@ const seeds: ProductSeed[] = [
     "Smart Home",
     119.99,
     "Color lighting · Hue Bridge · Smart control",
-    "/products/smart-home/philip2.png",
+    "/Products/smart-home/philip2.png",
   ],
   [
     "Anker 777 Thunderbolt Docking Station",
@@ -574,7 +574,7 @@ const seeds: ProductSeed[] = [
     "Accessories",
     249.99,
     "12-in-1 · Thunderbolt 4 · 40Gbps",
-    "/products/accessories/anker2.png",
+    "/Products/accessories/anker2.png",
   ],
   [
     "CalDigit TS4 Thunderbolt 4 Dock",
@@ -583,7 +583,7 @@ const seeds: ProductSeed[] = [
     "Accessories",
     379.99,
     "18 ports · 98W charging · 2.5GbE",
-    "/products/accessories/caldigit.png",
+    "/Products/accessories/caldigit.png",
   ],
   [
     "Anker 737 Power Bank 24K",
@@ -592,7 +592,7 @@ const seeds: ProductSeed[] = [
     "Accessories",
     109.99,
     "24,000mAh · 140W · Smart display",
-    "/products/accessories/anker737.png",
+    "/Products/accessories/anker737.png",
   ],
   [
     "Satechi Dual Vertical Laptop Stand",
@@ -601,7 +601,7 @@ const seeds: ProductSeed[] = [
     "Accessories",
     44.99,
     "Aluminum · Dual slot · Adjustable",
-    "/products/accessories/satechi.png",
+    "/Products/accessories/satechi.png",
   ],
 ];
 
