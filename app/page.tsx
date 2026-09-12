@@ -246,12 +246,12 @@ export default function Page() {
                     {/* Primary CTA */}
                     <Link
                       href="/deals"
-                      className="group/cta inline-flex h-12 items-center justify-center gap-2 rounded-full bg-blue-600 px-6 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(15,23,42,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_14px_30px_rgba(37,99,235,0.25)]"
+                      className="group/cta inline-flex h-12 items-center justify-center gap-2 rounded-full bg-blue-950 px-6 text-sm font-semibold !text-white shadow-[0_10px_25px_rgba(15,23,42,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_14px_30px_rgba(37,99,235,0.25)]"
                     >
-                      Shop Tech Week deals
+                      <span className="!text-white">Shop Tech Week deals</span>
                       <ArrowRight
                         size={16}
-                        className="transition-transform duration-300 group-hover/cta:translate-x-1"
+                        className="!text-white transition-transform duration-300 group-hover/cta:translate-x-1"
                       />
                     </Link>
 
@@ -693,7 +693,7 @@ export default function Page() {
                   <Link
                     href={tool.href}
                     key={tool.title}
-                    className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${tool.className} p-6 text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-[0.99]`}
+                    className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${tool.className} p-6 !text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-[0.99]`}
                   >
                     {/* Decorative shape */}
                     <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/10 transition-transform duration-500 group-hover:scale-125" />

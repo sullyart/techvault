@@ -175,11 +175,11 @@ export function Header() {
             <button
               type="button"
               onClick={() => setIsAddressModalOpen(true)}
-              className="hidden shrink-0 items-center gap-2 rounded-lg px-2 py-2 text-left transition hover:bg-slate-50 xl:flex"
+              className="flex shrink-0 items-center gap-1.5 rounded-lg px-2 py-2 text-left transition hover:bg-slate-50"
             >
-              <MapPin size={19} className="text-slate-600" />
+              <MapPin size={19} className="shrink-0 text-slate-600" />
 
-              <span className="flex min-w-0 flex-col">
+              <span className="hidden min-w-0 flex-col sm:flex">
                 <span className="text-[11px] font-medium text-slate-500">
                   Deliver to
                 </span>
@@ -189,6 +189,11 @@ export function Header() {
                     ? `${selectedAddress.city}, ${selectedAddress.region}`
                     : "Select address"}
                 </span>
+              </span>
+
+              {/* Mobile */}
+              <span className="max-w-[90px] truncate text-xs font-bold text-slate-800 sm:hidden">
+                {selectedAddress ? selectedAddress.city : "Address"}
               </span>
             </button>
 

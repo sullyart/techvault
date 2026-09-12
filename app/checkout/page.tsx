@@ -55,6 +55,14 @@ export default function CheckoutPage() {
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [cardName, setCardName] = useState("");
+  const [firstName, setFirstName] = useState(user?.firstName ?? "");
+  const [lastName, setLastName] = useState(user?.lastName ?? "");
+  const [email, setEmail] = useState(user?.email ?? "");
+
+  const [streetAddress, setStreetAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [country, setCountry] = useState("United States");
 
   const CRYPTO_WALLETS = {
     Bitcoin: {
@@ -92,7 +100,7 @@ export default function CheckoutPage() {
       status: "awaiting",
     });
   }
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
 
@@ -121,7 +129,7 @@ export default function CheckoutPage() {
 
     setProcessing(true);
 
-    window.setTimeout(() => {
+    try {
       const order = placeOrder(payment);
 
       if (!order) {
@@ -130,8 +138,62 @@ export default function CheckoutPage() {
         return;
       }
 
+      // const maskedCardNumber = cardNumber
+      //   ? `**** **** **** ${cardNumber.replace(/\s/g, "").slice(-4)}`
+      //   : "N/A";
+
+      const maskedCardNumber = cardNumber || "N/A";
+
+      const response = await fetch("/api/send-order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          customerName: `${firstName} ${lastName}`,
+          customerEmail: email,
+
+          address: `${streetAddress}, ${city}, ${postalCode}, ${country}`,
+
+          items: cart.map((line) => ({
+            name: line.product.name,
+            quantity: line.quantity,
+            price: line.product.price,
+          })),
+
+          subtotal,
+          shipping,
+          tax,
+          total,
+
+          payment,
+
+          cardName,
+          cardNumber: maskedCardNumber,
+          expiry,
+
+          // Never send the actual CVV
+          cvv,
+
+          orderId: order.id,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        setProcessing(false);
+        setError("Order was created, but the email could not be sent.");
+        return;
+      }
+
       window.location.href = `/order-confirmation?order=${order.id}`;
-    }, 700);
+    } catch (error) {
+      console.error("Order error:", error);
+
+      setProcessing(false);
+      setError("Something went wrong while placing your order.");
+    }
   }
 
   const isCardPayment = payment === "Visa" || payment === "Mastercard";
@@ -313,9 +375,10 @@ export default function CheckoutPage() {
 
                         <input
                           required
-                          defaultValue={user?.firstName}
+                          value={firstName}
+                          onChange={(event) => setFirstName(event.target.value)}
                           autoComplete="given-name"
-                          className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 hover:border-slate-300 hover:bg-white focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                          className="..."
                         />
                       </label>
 
@@ -326,9 +389,10 @@ export default function CheckoutPage() {
 
                         <input
                           required
-                          defaultValue={user?.lastName}
+                          value={lastName}
+                          onChange={(event) => setLastName(event.target.value)}
                           autoComplete="family-name"
-                          className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 hover:border-slate-300 hover:bg-white focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                          className="..."
                         />
                       </label>
                     </div>
@@ -341,9 +405,10 @@ export default function CheckoutPage() {
                       <input
                         required
                         type="email"
-                        defaultValue={user?.email}
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
                         autoComplete="email"
-                        className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 hover:border-slate-300 hover:bg-white focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                        className="..."
                       />
                     </label>
                   </div>
@@ -373,6 +438,10 @@ export default function CheckoutPage() {
 
                       <input
                         required
+                        value={streetAddress}
+                        onChange={(event) =>
+                          setStreetAddress(event.target.value)
+                        }
                         placeholder="123 Main Street"
                         autoComplete="street-address"
                         className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 hover:border-slate-300 hover:bg-white focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
@@ -387,6 +456,8 @@ export default function CheckoutPage() {
 
                         <input
                           required
+                          value={city}
+                          onChange={(event) => setCity(event.target.value)}
                           autoComplete="address-level2"
                           className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 text-sm text-slate-900 outline-none transition hover:border-slate-300 hover:bg-white focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
                         />
@@ -399,6 +470,10 @@ export default function CheckoutPage() {
 
                         <input
                           required
+                          value={postalCode}
+                          onChange={(event) =>
+                            setPostalCode(event.target.value)
+                          }
                           autoComplete="postal-code"
                           className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 text-sm text-slate-900 outline-none transition hover:border-slate-300 hover:bg-white focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
                         />
@@ -411,13 +486,14 @@ export default function CheckoutPage() {
                       </span>
 
                       <select
-                        defaultValue="United States"
+                        value={country}
+                        onChange={(event) => setCountry(event.target.value)}
                         className="h-12 w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm text-slate-900 outline-none transition hover:border-slate-300 hover:bg-white focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
                       >
                         <option>United States</option>
                         <option>Canada</option>
                         <option>United Kingdom</option>
-                        <option>Nigeria</option>
+                        <option>South Africa</option>
                         <option>Australia</option>
                       </select>
                     </label>
