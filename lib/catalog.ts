@@ -61,7 +61,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     1999.99,
     "32GB GDDR7 · PCIe 5.0",
-    "/products/graphics-cards/5090.png",
+    "/Products/graphics-cards/5090.png",
   ],
   [
     "ASUS TUF Gaming GeForce RTX 5080 OC 16GB",
@@ -70,7 +70,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     1099.99,
     "16GB GDDR7 · 4K Ready",
-    "/products/graphics-cards/5080asus.png",
+    "/Products/graphics-cards/5080asus.png",
   ],
   [
     "GIGABYTE GeForce RTX 5070 Ti Gaming OC 16GB",
@@ -79,7 +79,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     849.99,
     "16GB GDDR7 · DLSS 4",
-    "/products/graphics-cards/GIGABYTE GeForce RTX 5070 Ti Gaming OC 16GB.webp",
+    "/Products/graphics-cards/GIGABYTE GeForce RTX 5070 Ti Gaming OC 16GB.webp",
   ],
   [
     "MSI GeForce RTX 5070 Ventus 3X OC 12GB",
@@ -88,7 +88,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     649.99,
     "12GB GDDR7 · Ray tracing",
-    "/products/graphics-cards/MSI GeForce RTX 5070 Ventus 3X OC 12GB.webp",
+    "/Products/graphics-cards/MSI GeForce RTX 5070 Ventus 3X OC 12GB.webp",
   ],
   [
     "Sapphire Nitro+ Radeon RX 9070 XT 16GB",
@@ -97,7 +97,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     749.99,
     "16GB GDDR6 · FSR 4",
-    "/products/graphics-cards/Saphire.png",
+    "/Products/graphics-cards/Saphire.png",
   ],
   [
     "AMD Ryzen 9 9950X 16-Core Desktop Processor",
@@ -106,7 +106,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     599.99,
     "16 cores · 5.7GHz boost",
-    "/products/cpus/amd-ryzen-9-9950x.png",
+    "/Products/cpus/amd-ryzen-9-9950x.png",
   ],
   [
     "AMD Ryzen 7 9800X3D 8-Core Gaming Processor",
@@ -115,7 +115,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     469.99,
     "8 cores · 3D V-Cache",
-    "/products/cpus/amd-ryzen-7-9800x3d.png",
+    "/Products/cpus/amd-ryzen-7-9800x3d.png",
   ],
   [
     "Intel Core Ultra 9 285K Desktop Processor",
@@ -124,7 +124,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     589.99,
     "24 cores · LGA1851",
-    "/products/cpus/intelcore9.png",
+    "/Products/cpus/intelcore9.png",
   ],
   [
     "Intel Core Ultra 7 265K Desktop Processor",
@@ -133,7 +133,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     399.99,
     "20 cores · NPU built-in",
-    "/products/cpus/intelcore7.png",
+    "/Products/cpus/intelcore7.png",
   ],
   [
     "ASUS ROG Crosshair X870E Hero Motherboard",
@@ -142,7 +142,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     699.99,
     "AM5 · WiFi 7 · DDR5",
-    "/products/motherboards/crosshair2.png",
+    "/Products/motherboards/crosshair2.png",
   ],
   [
     "MSI MAG X870 Tomahawk WiFi Motherboard",
@@ -151,7 +151,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     259.99,
     "AM5 · WiFi 7 · PCIe 5.0",
-    "/products/motherboards/mag.png",
+    "/Products/motherboards/mag.png",
   ],
   [
     "GIGABYTE B650E AORUS Elite X AX ICE Motherboard",
@@ -160,7 +160,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     219.99,
     "AM5 · DDR5 · WiFi 6E",
-    "/products/motherboards/aorus.png",
+    "/Products/motherboards/aorus.png",
   ],
   [
     "Corsair Vengeance RGB 32GB DDR5-6000",
@@ -169,7 +169,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     480.99,
     "32GB · 6000MT/s · CL30",
-    "/products/memory/corsair.png",
+    "/Products/memory/corsair.png",
   ],
   [
     "G.SKILL Trident Z5 Neo RGB 64GB DDR5-6000",
@@ -178,7 +178,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     1150.99,
     "64GB · 6000MT/s · AMD EXPO",
-    "/products/memory/gskill.png",
+    "/Products/memory/gskill.png",
   ],
   [
     "Kingston FURY Beast 32GB DDR5-5600",
@@ -187,7 +187,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     150.99,
     "32GB · 5600MT/s · CL36",
-    "/products/memory/fury.png",
+    "/Products/memory/fury.png",
   ],
   [
     "Samsung 9100 PRO 2TB PCIe 5.0 NVMe SSD",
@@ -196,7 +196,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     699.0,
     "14,700MB/s · M.2 2280",
-    "/products/storage/samsung3.png",
+    "/Products/storage/samsung3.png",
   ],
   [
     "WD_BLACK SN850X 4TB NVMe Gaming SSD",
@@ -205,7 +205,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     589.1,
     "7,300MB/s · Heatsink",
-    "/products/storage/sandisk2.png",
+    "/Products/storage/sandisk2.png",
   ],
   [
     "Crucial T705 2TB PCIe Gen5 NVMe SSD",
@@ -214,7 +214,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     310,
     "14,500MB/s · Gen5",
-    "/products/storage/crucial.png",
+    "/Products/storage/crucial.png",
   ],
   [
     "Seasonic PRIME TX-1000 1000W Titanium PSU",
@@ -223,7 +223,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     440.99,
     "1000W · 80 PLUS Titanium · Fully modular",
-    "/products/power-supplies/seasonic.png",
+    "/Products/power-supplies/seasonic.png",
   ],
   [
     "Corsair RM1000x SHIFT 1000W Modular PSU",
@@ -232,7 +232,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     189.99,
     "1000W · ATX 3.1 · PCIe 5.1",
-    "/products/power-supplies/rm100.png",
+    "/Products/power-supplies/rm100.png",
   ],
   [
     "NZXT H9 Flow Dual-Chamber ATX Case",
@@ -241,7 +241,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     159.99,
     "Dual chamber · Airflow · Tempered glass",
-    "/products/pc-cases/nzxt.png",
+    "/Products/pc-cases/nzxt.png",
   ],
   [
     "Lian Li O11D EVO RGB Mid-Tower Case",
@@ -250,7 +250,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     169.99,
     "Dual chamber · Tempered glass · RGB",
-    "/products/pc-cases/lian.png",
+    "/Products/pc-cases/lian.png",
   ],
   [
     "NZXT Kraken Elite 360 RGB Liquid Cooler",
@@ -259,7 +259,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     279.99,
     "360mm · AIO · 2.72-inch LCD",
-    "/products/cooling/kraken.png",
+    "/Products/cooling/kraken.png",
   ],
   [
     "Noctua NH-D15 G2 CPU Cooler",
@@ -268,7 +268,7 @@ const seeds: ProductSeed[] = [
     "PC Components",
     149.99,
     "Dual tower · 8 heatpipes · 140mm fans",
-    "/products/cooling/noctua2.png",
+    "/Products  /cooling/noctua2.png",
   ],
   [
     "ASUS ROG Strix Scar 18 (2025) Gaming Laptop",

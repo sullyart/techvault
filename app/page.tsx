@@ -21,15 +21,15 @@ const categories = [
   [
     "Graphics Cards",
     "/category/graphics-cards",
-    "/products/graphics-cards/5090.png",
+    "/Products/graphics-cards/5090.png",
   ],
-  ["CPUs", "/category/cpus", "/products/cpus/amd-ryzen-7-9800x3d.png"],
-  ["Laptops", "/category/laptops", "/products/laptops/mac.jpg"],
-  ["Monitors", "/category/monitors", "/products/monitors/asusmonitor.png"],
-  ["Storage", "/category/storage", "/products/storage/crucial.png"],
-  ["Keyboards", "/category/keyboards", "/products/keyboards/keychron.webp"],
-  ["Networking", "/category/networking", "/products/networking/eero.png"],
-  ["Smart Home", "/category/smart-home", "/products/smart-home/nesthub.png"],
+  ["CPUs", "/category/cpus", "/Products/cpus/amd-ryzen-7-9800x3d.png"],
+  ["Laptops", "/category/laptops", "/Products/laptops/mac.jpg"],
+  ["Monitors", "/category/monitors", "/Products/monitors/asusmonitor.png"],
+  ["Storage", "/category/storage", "/Products/storage/crucial.png"],
+  ["Keyboards", "/category/keyboards", "/Products/keyboards/keychron.webp"],
+  ["Networking", "/category/networking", "/Products/networking/eero.png"],
+  ["Smart Home", "/category/smart-home", "/Products/smart-home/nesthub.png"],
 ] as const;
 
 const shoppingTools = [
