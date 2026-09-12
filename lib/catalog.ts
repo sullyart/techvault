@@ -616,7 +616,7 @@ export const products: Product[] = seeds.map(
     category,
     subcategory,
     shortDescription,
-    description: `${name} delivers dependable performance for modern workstations, gaming rigs, and creative setups. This demo listing includes realistic specifications for browsing and cart testing.`,
+    description: `${name} delivers dependable performance for modern workstations, gaming rigs, and creative setups. This  listing includes realistic specifications for browsing and cart testing.`,
     price,
     originalPrice: Math.round(price * (1.08 + (index % 4) * 0.04) * 100) / 100,
     discount: Math.round(
@@ -637,7 +637,7 @@ export const products: Product[] = seeds.map(
     features: [
       "Fast, reliable everyday performance",
       "Designed for modern setups",
-      "Backed by a limited demo warranty",
+      "Backed by a limited  warranty",
     ],
     tags: [brand, category, subcategory, "tech", "upgrade"],
   }),

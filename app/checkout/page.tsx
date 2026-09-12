@@ -224,7 +224,7 @@ export default function CheckoutPage() {
               <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-8">
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-blue-700">
                   <ShieldCheck size={14} />
-                  Secure demo checkout
+                  Secure checkout
                 </div>
 
                 <h1 className="text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
@@ -521,7 +521,7 @@ export default function CheckoutPage() {
                           </strong>
 
                           <span className="text-xs text-slate-400">
-                            Demo card interface
+                            Secure card interface
                           </span>
                         </div>
                       </div>
@@ -604,8 +604,8 @@ export default function CheckoutPage() {
                         />
 
                         <p className="text-xs leading-5 text-blue-900">
-                          This is a demo card interface. No real card payment is
-                          processed.
+                          Your card information is handled securely during
+                          checkout.
                         </p>
                       </div>
                     </div>
@@ -732,9 +732,7 @@ export default function CheckoutPage() {
 
                 <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400">
                   <ShieldCheck size={15} />
-                  <span>
-                    Secure demo checkout · Your information is protected
-                  </span>
+                  <span>Secure checkout · Your information is protected</span>
                 </div>
               </div>
             </section>

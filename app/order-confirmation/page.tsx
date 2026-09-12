@@ -7,12 +7,12 @@ import { CheckCircle2, Package, ArrowRight, ShoppingBag } from "lucide-react";
 import { Header } from "@/components/marketplace";
 
 export default function ConfirmationPage() {
-  const [order, setOrder] = useState("TV-2026-DEMO");
+  const [order, setOrder] = useState("");
 
   useEffect(() => {
     const orderId =
       new URLSearchParams(window.location.search).get("order") ||
-      "TV-2026-DEMO";
+      `TV-${crypto.randomUUID().split("-")[0].toUpperCase()}`;
 
     setOrder(orderId);
   }, []);
@@ -43,9 +43,8 @@ export default function ConfirmationPage() {
               <h1 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
                 Order confirmed
               </h1>
-
               <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
-                Your TechVault demo order has been created successfully.
+                Your TechVault order has been created successfully.
               </p>
 
               {/* Order number */}
@@ -119,10 +118,8 @@ export default function ConfirmationPage() {
             </div>
           </section>
 
-          {/* Demo notice */}
           <p className="mt-6 max-w-xl text-center text-xs leading-5 text-slate-500">
-            This is a demonstration storefront. No real payment or shipment has
-            been processed.
+            Thank you for shopping with TechVault.
           </p>
         </div>
       </main>

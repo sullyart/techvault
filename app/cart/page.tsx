@@ -249,7 +249,7 @@ export default function CartPage() {
                         Secure checkout
                       </p>
                       <p className="text-xs text-[#657491]">
-                        Your demo order is protected
+                        Secure checkout · Your information is protected
                       </p>
                     </div>
                   </div>
@@ -330,8 +330,8 @@ export default function CartPage() {
                     />
 
                     <p className="text-xs leading-5 text-[#657491]">
-                      Checkout is currently a demo experience. No real payment
-                      will be processed.
+                      Your payment information is handled securely throughout
+                      checkout.
                     </p>
                   </div>
                 </div>

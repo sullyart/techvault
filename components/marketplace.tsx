@@ -809,7 +809,7 @@ function AccountMenu({ user, onClose }: { user: any; onClose: () => void }) {
 
       <div className="my-4 rounded-xl bg-gradient-to-r from-[#071c4d] to-blue-700 p-4 text-white">
         <span className="block text-[11px] font-medium text-blue-100">
-          TechVault Demo Store Credit
+          TechVault Store Credit
         </span>
 
         <strong className="mt-1 block text-2xl font-black">

@@ -322,7 +322,7 @@ export default function RegisterPage() {
 
                     <div>
                       <p className="text-sm font-semibold text-blue-950">
-                        Demo storefront account
+                        Your secure storefront account
                       </p>
 
                       <p className="mt-1 text-xs leading-5 text-blue-800/80">
@@ -373,7 +373,7 @@ export default function RegisterPage() {
           {/* Security reassurance */}
           <div className="mt-6 flex items-center justify-center gap-2 text-center text-xs text-slate-400">
             <ShieldCheck size={14} />
-            <span>Secure demo environment · TechVault frontend prototype</span>
+            <span>Secure and protected checkout</span>
           </div>
         </div>
       </main>

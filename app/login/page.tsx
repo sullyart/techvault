@@ -32,7 +32,7 @@ export default function LoginPage() {
     }
 
     setError(
-      "Demo account not found. Register first or check your credentials.",
+      "Account not found. Please register first or check your credentials.",
     );
   }
 
@@ -58,8 +58,8 @@ export default function LoginPage() {
               </h2>
 
               <p className="mt-4 max-w-sm text-sm leading-6 text-blue-100">
-                Sign in to manage your orders, wishlist, demo wallet balance,
-                and TechVault account.
+                Sign in to manage your orders, wishlist, total spending, and
+                TechVault account.
               </p>
             </div>
 
@@ -69,7 +69,7 @@ export default function LoginPage() {
 
                 <div>
                   <p className="text-sm font-semibold">
-                    Secure demo experience
+                    Secure shopping experience
                   </p>
 
                   <p className="mt-1 text-xs leading-5 text-blue-100">
@@ -202,7 +202,7 @@ export default function LoginPage() {
                     href="/register"
                     className="font-semibold text-blue-600 hover:text-blue-700"
                   >
-                    Create a demo account
+                    Create an account
                   </Link>
                 </p>
               </div>
@@ -220,10 +220,8 @@ export default function LoginPage() {
           </section>
         </div>
 
-        {/* Demo notice */}
         <p className="mx-auto mt-6 max-w-xl text-center text-xs leading-5 text-slate-400">
-          Demo storefront account — authentication is currently handled locally
-          for this prototype.
+          Your account information is securely managed by TechVault.
         </p>
       </main>
     </>

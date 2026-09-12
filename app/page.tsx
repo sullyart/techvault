@@ -914,7 +914,7 @@ export default function Page() {
               <div>
                 <p className="text-xs font-bold text-white">Secure checkout</p>
                 <p className="mt-0.5 text-[11px] text-blue-100/45">
-                  Protected demo payments
+                  Secure payment processing
                 </p>
               </div>
             </div>
@@ -950,10 +950,7 @@ export default function Page() {
        BOTTOM BAR
     ========================================================= */}
           <div className="flex flex-col gap-4 pt-6 text-[11px] text-blue-100/45 sm:flex-row sm:items-center sm:justify-between">
-            <span>
-              © 2026 TechVault. Demo marketplace catalog for frontend
-              prototyping.
-            </span>
+            <span>© 2026 TechVault. All rights reserved.</span>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <Link href="/help" className="transition-colors hover:text-white">
