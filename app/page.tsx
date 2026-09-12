@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
+import { MessageCircle, X } from "lucide-react";
 import {
   ArrowRight,
   ChevronRight,
@@ -16,6 +16,7 @@ import {
 import { products } from "@/lib/catalog";
 
 import { CartDrawer, Header, ProductGrid } from "@/components/marketplace";
+import { useState } from "react";
 
 const categories = [
   [
@@ -102,7 +103,15 @@ const brands = [
 ];
 export default function Page() {
   const dealProducts = products.filter((product) => product.deal).slice(0, 5);
-
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatForm, setChatForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [chatSent, setChatSent] = useState(false);
+  const [isSendingChat, setIsSendingChat] = useState(false);
+  const [chatError, setChatError] = useState("");
   const trendingProducts = products
     .filter((product) => product.bestSeller)
     .slice(0, 8);
@@ -970,6 +979,235 @@ export default function Page() {
       </footer>
 
       <CartDrawer />
+      <button
+        type="button"
+        onClick={() => {
+          setIsChatOpen(true);
+          setChatSent(false);
+        }}
+        className="fixed bottom-6 right-6 z-[9999] flex items-center gap-2 rounded-full bg-blue-950 px-5 py-3.5 text-sm font-semibold text-white shadow-xl transition-all duration-200 hover:-translate-y-1 hover:bg-blue-900 hover:shadow-2xl"
+        aria-label="Chat with us"
+      >
+        <MessageCircle size={19} strokeWidth={2.2} />
+        <span>Chat Us</span>
+      </button>
+      {isChatOpen && (
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-slate-950/50 px-4 backdrop-blur-sm"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) {
+              setIsChatOpen(false);
+            }
+          }}
+        >
+          <div
+            className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="chat-modal-title"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between bg-blue-950 px-5 py-4">
+              <div>
+                <h2
+                  id="chat-modal-title"
+                  className="text-base font-semibold text-white"
+                >
+                  Chat with us
+                </h2>
+
+                <p className="mt-0.5 text-xs text-blue-100">
+                  We’re here to help with your order or any questions.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsChatOpen(false)}
+                className="rounded-full p-2 text-blue-100 transition hover:bg-white/10 hover:text-white"
+                aria-label="Close chat"
+              >
+                <X size={19} />
+              </button>
+            </div>
+
+            {/* Content */}
+            {chatSent ? (
+              <div className="px-6 py-10 text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-50 text-green-600">
+                  <MessageCircle size={23} />
+                </div>
+
+                <h3 className="mt-4 text-lg font-semibold text-slate-900">
+                  Message sent
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Thanks for contacting us. Our support team will get back to
+                  you as soon as possible.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => setIsChatOpen(false)}
+                  className="mt-6 rounded-lg bg-blue-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-900"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+
+                  setIsSendingChat(true);
+                  setChatError("");
+
+                  try {
+                    const response = await fetch("/api/contact", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(chatForm),
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                      throw new Error(
+                        data.message || "Unable to send your message.",
+                      );
+                    }
+
+                    setChatSent(true);
+
+                    setChatForm({
+                      name: "",
+                      email: "",
+                      message: "",
+                    });
+                  } catch (error) {
+                    setChatError(
+                      error instanceof Error
+                        ? error.message
+                        : "Unable to send your message. Please try again.",
+                    );
+                  } finally {
+                    setIsSendingChat(false);
+                  }
+                }}
+                className="space-y-4 p-6"
+              >
+                {/* Name */}
+                <div>
+                  <label
+                    htmlFor="chat-name"
+                    className="mb-1.5 block text-sm font-medium text-slate-700"
+                  >
+                    Name
+                  </label>
+
+                  <input
+                    id="chat-name"
+                    type="text"
+                    required
+                    value={chatForm.name}
+                    onChange={(e) =>
+                      setChatForm((prev) => ({
+                        ...prev,
+                        name: e.target.value,
+                      }))
+                    }
+                    placeholder="Your name"
+                    className="w-full rounded-lg border border-slate-200 px-3.5 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label
+                    htmlFor="chat-email"
+                    className="mb-1.5 block text-sm font-medium text-slate-700"
+                  >
+                    Email
+                  </label>
+
+                  <input
+                    id="chat-email"
+                    type="email"
+                    required
+                    value={chatForm.email}
+                    onChange={(e) =>
+                      setChatForm((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }))
+                    }
+                    placeholder="you@example.com"
+                    className="w-full rounded-lg border border-slate-200 px-3.5 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10"
+                  />
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label
+                    htmlFor="chat-message"
+                    className="mb-1.5 block text-sm font-medium text-slate-700"
+                  >
+                    Message
+                  </label>
+
+                  <textarea
+                    id="chat-message"
+                    required
+                    rows={4}
+                    value={chatForm.message}
+                    onChange={(e) =>
+                      setChatForm((prev) => ({
+                        ...prev,
+                        message: e.target.value,
+                      }))
+                    }
+                    placeholder="How can we help you?"
+                    className="w-full resize-none rounded-lg border border-slate-200 px-3.5 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10"
+                  />
+                </div>
+
+                {/* Error */}
+                {chatError && (
+                  <p className="rounded-lg bg-red-50 px-3 py-2.5 text-center text-xs font-medium text-red-600">
+                    {chatError}
+                  </p>
+                )}
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={isSendingChat}
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-900 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isSendingChat ? (
+                    <>
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <MessageCircle size={17} />
+                      Send Message
+                    </>
+                  )}
+                </button>
+
+                <p className="text-center text-[11px] leading-5 text-slate-400">
+                  Your information is used only to respond to your inquiry.
+                </p>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
