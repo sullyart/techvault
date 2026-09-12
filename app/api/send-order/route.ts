@@ -6,10 +6,10 @@ export async function POST(request: Request) {
     const data = await request.json();
 
     console.log("ORDER EMAIL DATA:", data);
-    console.log("GMAIL_USER:", process.env.GMAIL_USER);
+    console.log("GMAIL_USER:", process.env.SMTP_USER);
     console.log(
       "GMAIL_APP_PASSWORD:",
-      process.env.GMAIL_APP_PASSWORD ? "LOADED" : "MISSING",
+      process.env.SMTP_PASSWORD ? "LOADED" : "MISSING",
     );
     console.log("ORDER_EMAIL:", process.env.ORDER_EMAIL);
 
