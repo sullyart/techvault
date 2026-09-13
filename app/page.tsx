@@ -102,7 +102,7 @@ const brands = [
   },
 ];
 export default function Page() {
-  const dealProducts = products.filter((product) => product.deal).slice(0, 5);
+  const dealProducts = products.filter((product) => product.deal).slice(0, 8);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatForm, setChatForm] = useState({
     name: "",
@@ -245,7 +245,7 @@ export default function Page() {
                   <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
                     {/* Primary CTA */}
                     <Link
-                      href="/deals"
+                      href="/search"
                       className="group/cta inline-flex h-12 items-center justify-center gap-2 rounded-full bg-blue-950 px-6 text-sm font-semibold !text-white shadow-[0_10px_25px_rgba(15,23,42,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_14px_30px_rgba(37,99,235,0.25)]"
                     >
                       <span className="!text-white">Shop Tech Week deals</span>
@@ -390,7 +390,7 @@ export default function Page() {
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {/* PC BUILDER */}
                 <Link
-                  href="/pc-builder"
+                  href="/"
                   className="group relative min-h-[140px] overflow-hidden rounded-[22px] border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)] sm:p-6"
                 >
                   <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-blue-50 transition duration-500 group-hover:scale-125" />

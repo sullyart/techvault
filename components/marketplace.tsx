@@ -842,7 +842,7 @@ function AccountMenu({ user, onClose }: { user: any; onClose: () => void }) {
         />
 
         <AccountMenuLink
-          href="/account/store-credit"
+          href="/account"
           label="Store Credit"
           onClick={onClose}
         />
