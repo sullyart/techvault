@@ -690,7 +690,7 @@ export function Header() {
             </Link>
 
             <Link
-              href="/category/pc-components"
+              href="/tools/pc-builder"
               className="whitespace-nowrap transition hover:text-blue-700"
             >
               PC Components
