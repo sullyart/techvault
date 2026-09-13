@@ -124,22 +124,27 @@ export default function Page() {
           PROMO STRIP
       ========================================================= */}
       <div className="border-b border-blue-100 bg-blue-50">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-center gap-2 px-4 py-2.5 text-center text-xs font-medium text-slate-700 sm:text-sm">
-          <Zap size={14} className="shrink-0 text-blue-700" />
+        <div className="mx-auto flex max-w-[1500px] flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3 py-2.5 text-center text-xs font-medium text-slate-700 sm:flex-nowrap sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm">
+          {/* ICON */}
+          <Zap size={14} className="shrink-0 text-blue-700 sm:h-4 sm:w-4" />
 
-          <span>
+          {/* MESSAGE */}
+          <span className="min-w-0 leading-4 sm:leading-normal">
             <strong className="font-bold text-slate-950">
               Tech Week is here.
             </strong>{" "}
-            Save big on PC parts, laptops and gaming gear.
+            <span className="text-slate-700">
+              Save big on PC parts, laptops and gaming gear.
+            </span>
           </span>
 
+          {/* CTA */}
           <Link
             href="/deals"
-            className="ml-1 inline-flex shrink-0 items-center gap-1 font-bold text-blue-700 transition hover:text-blue-900"
+            className="inline-flex shrink-0 items-center gap-1 font-bold text-blue-700 transition hover:text-blue-900"
           >
-            Explore deals
-            <ArrowRight size={13} />
+            <span>Explore deals</span>
+            <ArrowRight size={13} className="sm:h-3.5 sm:w-3.5" />
           </Link>
         </div>
       </div>

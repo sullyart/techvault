@@ -156,551 +156,1019 @@ export function Header() {
       ===================================================== */}
 
       <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
-          <div className="flex min-h-[74px] items-center gap-2 sm:gap-3 lg:gap-5">
-            {/* LOGO */}
-
-            <Link
-              href="/"
-              aria-label="TechVault home"
-              className="shrink-0 text-2xl font-black tracking-[-0.06em] text-[#071c4d] sm:text-3xl"
+        <div className="mx-auto max-w-[1500px] px-3 sm:px-6 lg:px-8">
+          {/* =================================================
+        TOP HEADER
+    ================================================= */}
+          <div className="py-3 sm:py-4 lg:py-0">
+            <div
+              className="
+          grid
+          grid-cols-[1fr_auto_auto]
+          items-center
+          gap-2
+          sm:flex
+          sm:min-h-[74px]
+          sm:gap-3
+          lg:gap-5
+        "
             >
-              <span>tech</span>
-              <span className="text-blue-700">vault</span>
-              <span className="ml-0.5 text-cyan-500">+</span>
-            </Link>
-
-            {/* LOCATION */}
-
-            <button
-              type="button"
-              onClick={() => setIsAddressModalOpen(true)}
-              className="flex shrink-0 items-center gap-1.5 rounded-lg px-2 py-2 text-left transition hover:bg-slate-50"
-            >
-              <MapPin size={19} className="shrink-0 text-slate-600" />
-
-              <span className="hidden min-w-0 flex-col sm:flex">
-                <span className="text-[11px] font-medium text-slate-500">
-                  Deliver to
-                </span>
-
-                <span className="max-w-[150px] truncate text-xs font-bold text-slate-800">
-                  {selectedAddress
-                    ? `${selectedAddress.city}, ${selectedAddress.region}`
-                    : "Select address"}
-                </span>
-              </span>
-
-              {/* Mobile */}
-              <span className="max-w-[90px] truncate text-xs font-bold text-slate-800 sm:hidden">
-                {selectedAddress ? selectedAddress.city : "Address"}
-              </span>
-            </button>
-
-            {isAddressModalOpen && (
-              <div
-                className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 px-4"
-                onClick={() => setIsAddressModalOpen(false)}
+              {/* =================================================
+            LOGO
+        ================================================= */}
+              <Link
+                href="/"
+                aria-label="TechVault home"
+                className="
+            shrink-0
+            text-2xl
+            font-black
+            tracking-[-0.06em]
+            text-[#071c4d]
+            sm:text-3xl
+          "
               >
-                <div
-                  className="w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {/* Header */}
-                  <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-                    <div>
-                      <h2 className="text-lg font-black text-[#071c4d]">
-                        Choose delivery address
-                      </h2>
+                <span>tech</span>
+                <span className="text-blue-700">vault</span>
+                <span className="ml-0.5 text-cyan-500">+</span>
+              </Link>
 
-                      <p className="mt-1 text-xs text-slate-500">
-                        Select where you want your order delivered.
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => setIsAddressModalOpen(false)}
-                      className="rounded-full p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-800"
-                    >
-                      <X size={20} />
-                    </button>
-                  </div>
-
-                  {/* Addresses */}
-                  <div className="max-h-[60vh] overflow-y-auto p-5">
-                    {addresses.length > 0 ? (
-                      <div className="space-y-3">
-                        {addresses.map((address) => {
-                          const isSelected = selectedAddress?.id === address.id;
-
-                          return (
-                            <button
-                              key={address.id}
-                              type="button"
-                              onClick={() => {
-                                selectAddress(address.id);
-                                setIsAddressModalOpen(false);
-                              }}
-                              className={`w-full rounded-xl border p-4 text-left transition ${
-                                isSelected
-                                  ? "border-blue-600 bg-blue-50"
-                                  : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                              }`}
-                            >
-                              <div className="flex items-start justify-between gap-4">
-                                <div className="min-w-0">
-                                  <p className="text-sm font-bold text-slate-900">
-                                    {address.fullName}
-                                  </p>
-
-                                  <p className="mt-1 text-sm text-slate-600">
-                                    {address.addressLine1}
-                                  </p>
-
-                                  {address.addressLine2 && (
-                                    <p className="text-sm text-slate-600">
-                                      {address.addressLine2}
-                                    </p>
-                                  )}
-
-                                  <p className="text-sm text-slate-600">
-                                    {address.city}
-                                    {address.region
-                                      ? `, ${address.region}`
-                                      : ""}
-                                  </p>
-
-                                  {address.postalCode && (
-                                    <p className="text-sm text-slate-600">
-                                      {address.postalCode}
-                                    </p>
-                                  )}
-
-                                  {address.country && (
-                                    <p className="text-sm font-medium text-slate-600">
-                                      {address.country}
-                                    </p>
-                                  )}
-
-                                  {address.phone && (
-                                    <p className="mt-1 text-xs text-slate-500">
-                                      {address.phone}
-                                    </p>
-                                  )}
-                                </div>
-
-                                {isSelected && (
-                                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
-                                    <Check size={14} />
-                                  </div>
-                                )}
-                              </div>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <div className="rounded-xl border border-dashed border-slate-300 px-5 py-8 text-center">
-                        <MapPin size={30} className="mx-auto text-slate-400" />
-
-                        <p className="mt-3 text-sm font-bold text-slate-800">
-                          No delivery addresses yet
-                        </p>
-
-                        <p className="mt-1 text-xs text-slate-500">
-                          Add an address to make checkout faster.
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Add address */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsAddressModalOpen(false);
-                        setIsAddAddressModalOpen(true);
-                      }}
-                      className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold text-[#071c4d] transition hover:bg-slate-50"
-                    >
-                      <Plus size={18} />
-                      Add a new address
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {isAddAddressModalOpen && (
-              <div
-                className="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 px-4"
-                onClick={() => setIsAddAddressModalOpen(false)}
-              >
-                <div
-                  className="w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {/* Header */}
-                  <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-                    <div>
-                      <h2 className="text-lg font-black text-[#071c4d]">
-                        Add delivery address
-                      </h2>
-
-                      <p className="mt-1 text-xs text-slate-500">
-                        Enter your delivery details.
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => setIsAddAddressModalOpen(false)}
-                      className="rounded-full p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-800"
-                    >
-                      <X size={20} />
-                    </button>
-                  </div>
-
-                  {/* Form */}
-                  <form
-                    onSubmit={handleSaveAddress}
-                    className="max-h-[75vh] space-y-4 overflow-y-auto p-5"
-                  >
-                    <div>
-                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                        Full name
-                      </label>
-
-                      <input
-                        type="text"
-                        value={addressForm.fullName}
-                        onChange={(e) =>
-                          setAddressForm((current) => ({
-                            ...current,
-                            fullName: e.target.value,
-                          }))
-                        }
-                        placeholder="John Smith"
-                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                        Phone number
-                      </label>
-
-                      <input
-                        type="tel"
-                        value={addressForm.phone}
-                        onChange={(e) =>
-                          setAddressForm((current) => ({
-                            ...current,
-                            phone: e.target.value,
-                          }))
-                        }
-                        placeholder="+1 555 123 4567"
-                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                        Address
-                      </label>
-
-                      <input
-                        type="text"
-                        value={addressForm.addressLine1}
-                        onChange={(e) =>
-                          setAddressForm((current) => ({
-                            ...current,
-                            addressLine1: e.target.value,
-                          }))
-                        }
-                        placeholder="123 Main Street"
-                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                        Apartment, suite, unit
-                        <span className="ml-1 font-normal text-slate-400">
-                          (optional)
-                        </span>
-                      </label>
-
-                      <input
-                        type="text"
-                        value={addressForm.addressLine2}
-                        onChange={(e) =>
-                          setAddressForm((current) => ({
-                            ...current,
-                            addressLine2: e.target.value,
-                          }))
-                        }
-                        placeholder="Apartment 4B"
-                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <div>
-                        <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                          City
-                        </label>
-
-                        <input
-                          type="text"
-                          value={addressForm.city}
-                          onChange={(e) =>
-                            setAddressForm((current) => ({
-                              ...current,
-                              city: e.target.value,
-                            }))
-                          }
-                          placeholder="New York"
-                          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                          required
-                        />
-                      </div>
-
-                      <div>
-                        <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                          State / Region
-                        </label>
-
-                        <input
-                          type="text"
-                          value={addressForm.region}
-                          onChange={(e) =>
-                            setAddressForm((current) => ({
-                              ...current,
-                              region: e.target.value,
-                            }))
-                          }
-                          placeholder="California"
-                          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <div>
-                        <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                          Postal / ZIP code
-                        </label>
-
-                        <input
-                          type="text"
-                          value={addressForm.postalCode}
-                          onChange={(e) =>
-                            setAddressForm((current) => ({
-                              ...current,
-                              postalCode: e.target.value,
-                            }))
-                          }
-                          placeholder="10001"
-                          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                          required
-                        />
-                      </div>
-
-                      <div>
-                        <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                          Country
-                        </label>
-
-                        <input
-                          type="text"
-                          value={addressForm.country}
-                          onChange={(e) =>
-                            setAddressForm((current) => ({
-                              ...current,
-                              country: e.target.value,
-                            }))
-                          }
-                          placeholder="United States"
-                          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex gap-3 border-t border-slate-100 pt-4">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setIsAddAddressModalOpen(false);
-                          setIsAddressModalOpen(true);
-                        }}
-                        className="flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
-                      >
-                        Cancel
-                      </button>
-
-                      <button
-                        type="submit"
-                        className="w-full rounded-xl bg-[#071c4d] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#0b2b70]"
-                      >
-                        Save address
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            )}
-
-            {/* SEARCH */}
-
-            <form
-              onSubmit={handleSearch}
-              role="search"
-              className="ml-auto flex min-w-0 flex-1 overflow-hidden rounded-lg border-2 border-blue-700 bg-white transition focus-within:ring-4 focus-within:ring-blue-100"
-            >
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search hardware, laptops, gaming and more"
-                aria-label="Search products"
-                className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 sm:px-4"
-              />
-
-              <button
-                type="submit"
-                aria-label="Search"
-                className="flex h-auto w-11 shrink-0 items-center justify-center bg-blue-700 text-white transition hover:bg-blue-800 sm:w-12"
-              >
-                <Search size={19} />
-              </button>
-            </form>
-
-            {/* ACCOUNT */}
-
-            <div className="relative shrink-0">
+              {/* =================================================
+            LOCATION
+        ================================================= */}
               <button
                 type="button"
-                onClick={() => setAccountOpen((value) => !value)}
-                aria-expanded={accountOpen}
-                aria-haspopup="menu"
-                className="flex items-center gap-2 rounded-lg px-2 py-2 text-left transition hover:bg-slate-50"
-              >
-                <UserRound size={20} className="text-slate-700" />
+                onClick={() => setIsAddressModalOpen(true)}
+                className="
+            order-last
+            col-span-3
+            flex
+            min-w-0
+            w-full
+            items-center
+            gap-2
+            rounded-lg
+            border
+            border-slate-100
+            bg-slate-50
+            px-3
+            py-2.5
+            text-left
+            transition
+            hover:bg-slate-100
 
-                <span className="hidden min-w-0 lg:block">
-                  <span className="block max-w-[125px] truncate text-[11px] text-slate-500">
-                    {user ? `Hi, ${user.firstName}` : "Welcome"}
+            sm:order-none
+            sm:col-auto
+            sm:w-auto
+            sm:border-0
+            sm:bg-transparent
+            sm:px-2
+            sm:py-2
+            sm:hover:bg-slate-50
+          "
+              >
+                <MapPin size={19} className="shrink-0 text-slate-600" />
+
+                {/* Desktop / tablet */}
+                <span className="hidden min-w-0 flex-col sm:flex">
+                  <span className="text-[11px] font-medium text-slate-500">
+                    Deliver to
                   </span>
 
-                  <span className="block max-w-[125px] truncate text-xs font-bold text-slate-800">
-                    {user
-                      ? `$${user.balance.toFixed(2)} credit`
-                      : "Sign in / Register"}
+                  <span className="max-w-[150px] truncate text-xs font-bold text-slate-800">
+                    {selectedAddress
+                      ? `${selectedAddress.city}, ${selectedAddress.region}`
+                      : "Select address"}
+                  </span>
+                </span>
+
+                {/* Mobile */}
+                <span className="flex min-w-0 flex-col sm:hidden">
+                  <span className="text-[10px] font-medium text-slate-500">
+                    Deliver to
+                  </span>
+
+                  <span className="max-w-[220px] truncate text-xs font-bold text-slate-800">
+                    {selectedAddress
+                      ? `${selectedAddress.city}${
+                          selectedAddress.region
+                            ? `, ${selectedAddress.region}`
+                            : ""
+                        }`
+                      : "Select delivery address"}
                   </span>
                 </span>
               </button>
 
-              {accountOpen && (
-                <AccountMenu
-                  user={user}
-                  onClose={() => setAccountOpen(false)}
+              {/* =================================================
+            SEARCH
+        ================================================= */}
+              <form
+                onSubmit={handleSearch}
+                role="search"
+                className="
+            order-4
+            col-span-3
+            flex
+            min-w-0
+            w-full
+            overflow-hidden
+            rounded-lg
+            border-2
+            border-blue-700
+            bg-white
+            transition
+            focus-within:ring-4
+            focus-within:ring-blue-100
+
+            sm:order-none
+            sm:ml-auto
+            sm:flex-1
+          "
+              >
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search hardware, laptops, gaming and more"
+                  aria-label="Search products"
+                  className="
+              min-w-0
+              flex-1
+              border-0
+              bg-transparent
+              px-3
+              py-2.5
+              text-sm
+              text-slate-900
+              outline-none
+              placeholder:text-slate-400
+              sm:px-4
+            "
                 />
-              )}
-            </div>
 
-            {/* CART */}
+                <button
+                  type="submit"
+                  aria-label="Search"
+                  className="
+              flex
+              h-auto
+              w-11
+              shrink-0
+              items-center
+              justify-center
+              bg-blue-700
+              text-white
+              transition
+              hover:bg-blue-800
+              sm:w-12
+            "
+                >
+                  <Search size={19} />
+                </button>
+              </form>
 
-            <button
-              type="button"
-              onClick={() => setDrawerOpen(true)}
-              aria-label={`Open cart with ${cartCount} items`}
-              className="relative flex shrink-0 items-center gap-1.5 rounded-lg px-2 py-2 text-slate-800 transition hover:bg-slate-50"
-            >
-              <span className="relative">
-                <ShoppingCart size={22} />
+              {/* =================================================
+            ACCOUNT
+        ================================================= */}
+              <div className="relative shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setAccountOpen((value) => !value)}
+                  aria-expanded={accountOpen}
+                  aria-haspopup="menu"
+                  className="
+              flex
+              items-center
+              justify-center
+              gap-2
+              rounded-lg
+              px-2
+              py-2
+              text-left
+              transition
+              hover:bg-slate-50
+              sm:justify-start
+            "
+                >
+                  <UserRound size={20} className="text-slate-700" />
 
-                {cartCount > 0 && (
-                  <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-orange-500 px-1 text-[10px] font-bold text-white">
-                    {cartCount > 99 ? "99+" : cartCount}
+                  <span className="hidden min-w-0 lg:block">
+                    <span className="block max-w-[125px] truncate text-[11px] text-slate-500">
+                      {user ? `Hi, ${user.firstName}` : "Welcome"}
+                    </span>
+
+                    <span className="block max-w-[125px] truncate text-xs font-bold text-slate-800">
+                      {user
+                        ? `$${user.balance.toFixed(2)} credit`
+                        : "Sign in / Register"}
+                    </span>
                   </span>
-                )}
-              </span>
+                </button>
 
-              <span className="hidden text-sm font-bold sm:block">Cart</span>
-            </button>
+                {accountOpen && (
+                  <AccountMenu
+                    user={user}
+                    onClose={() => setAccountOpen(false)}
+                  />
+                )}
+              </div>
+
+              {/* =================================================
+            CART
+        ================================================= */}
+              <button
+                type="button"
+                onClick={() => setDrawerOpen(true)}
+                aria-label={`Open cart with ${cartCount} items`}
+                className="
+            relative
+            flex
+            shrink-0
+            items-center
+            justify-center
+            gap-1.5
+            rounded-lg
+            px-2
+            py-2
+            text-slate-800
+            transition
+            hover:bg-slate-50
+            sm:justify-start
+          "
+              >
+                <span className="relative">
+                  <ShoppingCart size={22} />
+
+                  {cartCount > 0 && (
+                    <span
+                      className="
+                  absolute
+                  -right-2
+                  -top-2
+                  flex
+                  h-5
+                  min-w-5
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-orange-500
+                  px-1
+                  text-[10px]
+                  font-bold
+                  text-white
+                "
+                    >
+                      {cartCount > 99 ? "99+" : cartCount}
+                    </span>
+                  )}
+                </span>
+
+                <span className="hidden text-sm font-bold sm:block">Cart</span>
+              </button>
+            </div>
           </div>
 
           {/* =================================================
-              NAVIGATION
-          ================================================= */}
+        ADDRESS MODAL
+    ================================================= */}
+          {isAddressModalOpen && (
+            <div
+              className="
+          fixed
+          inset-0
+          z-[100]
+          flex
+          items-center
+          justify-center
+          bg-black/40
+          p-3
+          sm:px-4
+        "
+              onClick={() => setIsAddressModalOpen(false)}
+            >
+              <div
+                className="
+            flex
+            max-h-[90vh]
+            w-full
+            max-w-lg
+            flex-col
+            overflow-hidden
+            rounded-2xl
+            bg-white
+            shadow-2xl
+          "
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header */}
+                <div
+                  className="
+              flex
+              shrink-0
+              items-center
+              justify-between
+              gap-4
+              border-b
+              border-slate-200
+              px-4
+              py-4
+              sm:px-5
+            "
+                >
+                  <div className="min-w-0">
+                    <h2 className="text-base font-black text-[#071c4d] sm:text-lg">
+                      Choose delivery address
+                    </h2>
 
-          <nav className="hidden items-center gap-6 overflow-x-auto border-t border-slate-100 py-3 text-sm font-semibold text-slate-700 lg:flex">
+                    <p className="mt-1 text-xs text-slate-500">
+                      Select where you want your order delivered.
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsAddressModalOpen(false)}
+                    className="
+                shrink-0
+                rounded-full
+                p-2
+                text-slate-500
+                transition
+                hover:bg-slate-100
+                hover:text-slate-800
+              "
+                    aria-label="Close address modal"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                {/* Addresses */}
+                <div className="min-h-0 overflow-y-auto p-4 sm:p-5">
+                  {addresses.length > 0 ? (
+                    <div className="space-y-3">
+                      {addresses.map((address) => {
+                        const isSelected = selectedAddress?.id === address.id;
+
+                        return (
+                          <button
+                            key={address.id}
+                            type="button"
+                            onClick={() => {
+                              selectAddress(address.id);
+                              setIsAddressModalOpen(false);
+                            }}
+                            className={`w-full rounded-xl border p-4 text-left transition ${
+                              isSelected
+                                ? "border-blue-600 bg-blue-50"
+                                : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                            }`}
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="min-w-0">
+                                <p className="text-sm font-bold text-slate-900">
+                                  {address.fullName}
+                                </p>
+
+                                <p className="mt-1 break-words text-sm text-slate-600">
+                                  {address.addressLine1}
+                                </p>
+
+                                {address.addressLine2 && (
+                                  <p className="break-words text-sm text-slate-600">
+                                    {address.addressLine2}
+                                  </p>
+                                )}
+
+                                <p className="text-sm text-slate-600">
+                                  {address.city}
+                                  {address.region ? `, ${address.region}` : ""}
+                                </p>
+
+                                {address.postalCode && (
+                                  <p className="text-sm text-slate-600">
+                                    {address.postalCode}
+                                  </p>
+                                )}
+
+                                {address.country && (
+                                  <p className="text-sm font-medium text-slate-600">
+                                    {address.country}
+                                  </p>
+                                )}
+
+                                {address.phone && (
+                                  <p className="mt-1 text-xs text-slate-500">
+                                    {address.phone}
+                                  </p>
+                                )}
+                              </div>
+
+                              {isSelected && (
+                                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
+                                  <Check size={14} />
+                                </div>
+                              )}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="rounded-xl border border-dashed border-slate-300 px-5 py-8 text-center">
+                      <MapPin size={30} className="mx-auto text-slate-400" />
+
+                      <p className="mt-3 text-sm font-bold text-slate-800">
+                        No delivery addresses yet
+                      </p>
+
+                      <p className="mt-1 text-xs text-slate-500">
+                        Add an address to make checkout faster.
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Add address */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsAddressModalOpen(false);
+                      setIsAddAddressModalOpen(true);
+                    }}
+                    className="
+                mt-4
+                flex
+                w-full
+                items-center
+                justify-center
+                gap-2
+                rounded-xl
+                border
+                border-slate-200
+                px-4
+                py-3
+                text-sm
+                font-bold
+                text-[#071c4d]
+                transition
+                hover:bg-slate-50
+              "
+                  >
+                    <Plus size={18} />
+                    Add a new address
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* =================================================
+        ADD ADDRESS MODAL
+    ================================================= */}
+          {isAddAddressModalOpen && (
+            <div
+              className="
+          fixed
+          inset-0
+          z-[110]
+          flex
+          items-center
+          justify-center
+          bg-black/40
+          p-3
+          sm:px-4
+        "
+              onClick={() => setIsAddAddressModalOpen(false)}
+            >
+              <div
+                className="
+            flex
+            max-h-[92vh]
+            w-full
+            max-w-lg
+            flex-col
+            overflow-hidden
+            rounded-2xl
+            bg-white
+            shadow-2xl
+          "
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header */}
+                <div
+                  className="
+              flex
+              shrink-0
+              items-center
+              justify-between
+              gap-4
+              border-b
+              border-slate-200
+              px-4
+              py-4
+              sm:px-5
+            "
+                >
+                  <div className="min-w-0">
+                    <h2 className="text-base font-black text-[#071c4d] sm:text-lg">
+                      Add delivery address
+                    </h2>
+
+                    <p className="mt-1 text-xs text-slate-500">
+                      Enter your delivery details.
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsAddAddressModalOpen(false)}
+                    className="
+                shrink-0
+                rounded-full
+                p-2
+                text-slate-500
+                transition
+                hover:bg-slate-100
+                hover:text-slate-800
+              "
+                    aria-label="Close add address modal"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                {/* Form */}
+                <form
+                  onSubmit={handleSaveAddress}
+                  className="
+              min-h-0
+              space-y-4
+              overflow-y-auto
+              p-4
+              sm:p-5
+            "
+                >
+                  {/* Full Name */}
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                      Full name
+                    </label>
+
+                    <input
+                      type="text"
+                      value={addressForm.fullName}
+                      onChange={(e) =>
+                        setAddressForm((current) => ({
+                          ...current,
+                          fullName: e.target.value,
+                        }))
+                      }
+                      placeholder="John Smith"
+                      className="
+                  w-full
+                  rounded-xl
+                  border
+                  border-slate-200
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-blue-500
+                  focus:ring-2
+                  focus:ring-blue-100
+                "
+                      required
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                      Phone number
+                    </label>
+
+                    <input
+                      type="tel"
+                      value={addressForm.phone}
+                      onChange={(e) =>
+                        setAddressForm((current) => ({
+                          ...current,
+                          phone: e.target.value,
+                        }))
+                      }
+                      placeholder="+1 555 123 4567"
+                      className="
+                  w-full
+                  rounded-xl
+                  border
+                  border-slate-200
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-blue-500
+                  focus:ring-2
+                  focus:ring-blue-100
+                "
+                      required
+                    />
+                  </div>
+
+                  {/* Address */}
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                      Address
+                    </label>
+
+                    <input
+                      type="text"
+                      value={addressForm.addressLine1}
+                      onChange={(e) =>
+                        setAddressForm((current) => ({
+                          ...current,
+                          addressLine1: e.target.value,
+                        }))
+                      }
+                      placeholder="123 Main Street"
+                      className="
+                  w-full
+                  rounded-xl
+                  border
+                  border-slate-200
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-blue-500
+                  focus:ring-2
+                  focus:ring-blue-100
+                "
+                      required
+                    />
+                  </div>
+
+                  {/* Apartment */}
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                      Apartment, suite, unit
+                      <span className="ml-1 font-normal text-slate-400">
+                        (optional)
+                      </span>
+                    </label>
+
+                    <input
+                      type="text"
+                      value={addressForm.addressLine2}
+                      onChange={(e) =>
+                        setAddressForm((current) => ({
+                          ...current,
+                          addressLine2: e.target.value,
+                        }))
+                      }
+                      placeholder="Apartment 4B"
+                      className="
+                  w-full
+                  rounded-xl
+                  border
+                  border-slate-200
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-blue-500
+                  focus:ring-2
+                  focus:ring-blue-100
+                "
+                    />
+                  </div>
+
+                  {/* City / Region */}
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                        City
+                      </label>
+
+                      <input
+                        type="text"
+                        value={addressForm.city}
+                        onChange={(e) =>
+                          setAddressForm((current) => ({
+                            ...current,
+                            city: e.target.value,
+                          }))
+                        }
+                        placeholder="New York"
+                        className="
+                    w-full
+                    rounded-xl
+                    border
+                    border-slate-200
+                    px-4
+                    py-3
+                    text-sm
+                    outline-none
+                    focus:border-blue-500
+                    focus:ring-2
+                    focus:ring-blue-100
+                  "
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                        State / Region
+                      </label>
+
+                      <input
+                        type="text"
+                        value={addressForm.region}
+                        onChange={(e) =>
+                          setAddressForm((current) => ({
+                            ...current,
+                            region: e.target.value,
+                          }))
+                        }
+                        placeholder="California"
+                        className="
+                    w-full
+                    rounded-xl
+                    border
+                    border-slate-200
+                    px-4
+                    py-3
+                    text-sm
+                    outline-none
+                    focus:border-blue-500
+                    focus:ring-2
+                    focus:ring-blue-100
+                  "
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Postal / Country */}
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                        Postal / ZIP code
+                      </label>
+
+                      <input
+                        type="text"
+                        value={addressForm.postalCode}
+                        onChange={(e) =>
+                          setAddressForm((current) => ({
+                            ...current,
+                            postalCode: e.target.value,
+                          }))
+                        }
+                        placeholder="10001"
+                        className="
+                    w-full
+                    rounded-xl
+                    border
+                    border-slate-200
+                    px-4
+                    py-3
+                    text-sm
+                    outline-none
+                    focus:border-blue-500
+                    focus:ring-2
+                    focus:ring-blue-100
+                  "
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                        Country
+                      </label>
+
+                      <input
+                        type="text"
+                        value={addressForm.country}
+                        onChange={(e) =>
+                          setAddressForm((current) => ({
+                            ...current,
+                            country: e.target.value,
+                          }))
+                        }
+                        placeholder="United States"
+                        className="
+                    w-full
+                    rounded-xl
+                    border
+                    border-slate-200
+                    px-4
+                    py-3
+                    text-sm
+                    outline-none
+                    focus:border-blue-500
+                    focus:ring-2
+                    focus:ring-blue-100
+                  "
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div
+                    className="
+                flex
+                flex-col-reverse
+                gap-3
+                border-t
+                border-slate-100
+                pt-4
+                sm:flex-row
+              "
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsAddAddressModalOpen(false);
+                        setIsAddressModalOpen(true);
+                      }}
+                      className="
+                  flex-1
+                  rounded-xl
+                  border
+                  border-slate-200
+                  px-4
+                  py-3
+                  text-sm
+                  font-bold
+                  text-slate-700
+                  transition
+                  hover:bg-slate-50
+                "
+                    >
+                      Cancel
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="
+                  flex-1
+                  rounded-xl
+                  bg-[#071c4d]
+                  px-4
+                  py-3
+                  text-sm
+                  font-bold
+                  text-white
+                  transition
+                  hover:bg-[#0b2b70]
+                "
+                    >
+                      Save address
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {/* =================================================
+        MOBILE / TABLET NAVIGATION
+    ================================================= */}
+          <nav
+            className="
+        -mx-3
+        flex
+        items-center
+        gap-5
+        overflow-x-auto
+        border-t
+        border-slate-100
+        px-3
+        py-3
+        text-sm
+        font-semibold
+        text-slate-700
+        scrollbar-none
+        sm:-mx-6
+        sm:px-6
+        lg:-mx-0
+        lg:gap-6
+        lg:px-0
+      "
+          >
             <Link
               href="/"
-              className="whitespace-nowrap transition hover:text-blue-700"
+              className="
+          shrink-0
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               All Categories
             </Link>
 
             <Link
-              href="/pc-builder"
-              className="whitespace-nowrap transition hover:text-blue-700"
+              href="/tools/pc-builder"
+              className="
+          shrink-0
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               PC Builder
             </Link>
 
             <Link
-              href="/deals"
-              className="whitespace-nowrap text-orange-600 transition hover:text-orange-700"
+              href="/search"
+              className="
+          shrink-0
+          whitespace-nowrap
+          text-orange-600
+          transition
+          hover:text-orange-700
+        "
             >
               Deals
             </Link>
 
             <Link
               href="/category/laptops"
-              className="whitespace-nowrap transition hover:text-blue-700"
+              className="
+          shrink-0
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               Laptops
             </Link>
 
             <Link
               href="/category/graphics-cards"
-              className="whitespace-nowrap transition hover:text-blue-700"
+              className="
+          shrink-0
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               Graphics Cards
             </Link>
 
             <Link
-              href="/category/gaming"
-              className="whitespace-nowrap transition hover:text-blue-700"
+              href="/category/laptops"
+              className="
+          shrink-0
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               Gaming
             </Link>
 
             <Link
               href="/category/monitors"
-              className="whitespace-nowrap transition hover:text-blue-700"
+              className="
+          shrink-0
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               Monitors
             </Link>
 
             <Link
               href="/tools/pc-builder"
-              className="whitespace-nowrap transition hover:text-blue-700"
+              className="
+          shrink-0
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               PC Components
             </Link>
 
-            <span className="flex-1" />
+            <span className="hidden flex-1 lg:block" />
 
             <Link
               href="/account/orders"
-              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap transition hover:text-blue-700"
+              className="
+          flex
+          shrink-0
+          items-center
+          gap-1.5
+          whitespace-nowrap
+          transition
+          hover:text-blue-700
+        "
             >
               <Package size={14} />
               Track an order
